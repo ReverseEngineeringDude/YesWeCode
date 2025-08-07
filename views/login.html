@@ -1,0 +1,96 @@
+<!-- public/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - Questions Hub</title>
+    <link href="/css/main.css" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2">
+                        <i data-lucide="code"></i>
+                        Questions Hub
+                    </h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="themeToggle"
+                        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                        <i data-lucide="sun" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form Section -->
+    <main class="flex items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div
+            class="max-w-md w-full space-y-8 bg-white dark:bg-gray-800 shadow-md rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+            <div class="text-center">
+                <i data-lucide="lock" class="w-10 h-10 mx-auto text-primary-600 dark:text-primary-400"></i>
+                <h2 class="mt-4 py-3 text-2xl text-white font-bold">Admin Login</h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Please enter your credentials to continue</p>
+            </div>
+
+            <form id="loginForm" class="space-y-8">
+                <div>
+                    <label for="username"
+                        class="block text-center font-medium text-gray-700 dark:text-gray-300">Username</label>
+                    <input type="text" name="username" id="username" required
+                        class="mt-1 block w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" />
+                </div>
+
+                <div>
+                    <label for="password"
+                        class="block text-center font-medium text-gray-700 dark:text-gray-300">Password</label>
+                    <input type="password" name="password" id="password" required
+                        class="mt-1 block w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-white dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500" />
+                </div>
+                <div class="py-8">
+                    <button type="submit"
+                        class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                        Login
+                    </button>
+                </div>
+
+                <p id="error" class="text-red-500 text-sm text-center hidden mt-2">Invalid credentials</p>
+            </form>
+        </div>
+    </main>
+
+    <script src="/js/theme.js"></script>
+    <script>
+        lucide.createIcons();
+
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const res = await fetch("/api/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: form.username.value,
+                    password: form.password.value,
+                }),
+            });
+
+            if (res.ok) {
+                location.href = "/admin";
+            } else {
+                document.getElementById("error").classList.remove("hidden");
+            }
+        });
+    </script>
+</body>
+
+</html>
