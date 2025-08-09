@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,51 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Left Section: Logo and Title -->
                 <div class="flex items-center space-x-4">
-                    <a href="/" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <i data-lucide="arrow-left" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+                    <a href="/" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        aria-label="Go back">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 dark:text-gray-300"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
                     </a>
-                    <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                        <i data-lucide="code"></i>
-                        Questions Hub
+                    <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-600 dark:text-primary-400"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 18l6-6-6-6" />
+                            <path d="M8 6L2 12l6 6" />
+                        </svg>
+                        <a href="/">
+                            <span>Questions Hub</span>
+                        </a>
                     </h1>
                 </div>
-                <button id="themeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-                    <i data-lucide="sun" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+
+                <!-- Right Section: Theme Toggle -->
+                <button id="themeToggle"
+                    class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
                 </button>
             </div>
         </div>
     </nav>
+
 
     <!-- Main Content -->
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -40,25 +66,33 @@
         <!-- Question Content -->
         <div id="questionContent" class="hidden">
             <!-- Question Header -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+            <div
+                class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
                 <h1 id="questionTitle" class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4"></h1>
                 <p id="questionDesc" class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed"></p>
             </div>
 
             <!-- Solution Tabs -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div
+                class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
                 <!-- Tab Headers -->
                 <div class="border-b border-gray-200 dark:border-gray-700">
                     <nav class="flex">
-                        <button class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-primary-600 text-primary-600 bg-primary-50 dark:bg-primary-900/20" data-solution="global">
+                        <button
+                            class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-primary-600 text-primary-600 bg-primary-50 dark:bg-primary-900/20"
+                            data-solution="global">
                             <i data-lucide="globe" class="w-4 h-4 inline mr-2"></i>
                             Global Variable
                         </button>
-                        <button class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" data-solution="function">
+                        <button
+                            class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                            data-solution="function">
                             <i data-lucide="function-square" class="w-4 h-4 inline mr-2"></i>
                             Function
                         </button>
-                        <button class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200" data-solution="args">
+                        <button
+                            class="solution-tab flex-1 py-4 px-6 text-center font-medium transition-colors border-b-2 border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                            data-solution="args">
                             <i data-lucide="settings" class="w-4 h-4 inline mr-2"></i>
                             With Arguments
                         </button>
@@ -69,34 +103,43 @@
                 <div class="solution-content p-6" id="solution-global">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Global Variable Solution</h3>
-                        <button class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors" data-solution="global">
+                        <button
+                            class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors"
+                            data-solution="global">
                             <i data-lucide="copy" class="w-4 h-4 inline mr-1"></i>
                             Copy
                         </button>
                     </div>
-                    <pre class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-global" class="language-c"></code></pre>
+                    <pre
+                        class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-global" class="language-c"></code></pre>
                 </div>
 
                 <div class="solution-content p-6 hidden" id="solution-function">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Function Solution</h3>
-                        <button class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors" data-solution="function">
+                        <button
+                            class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors"
+                            data-solution="function">
                             <i data-lucide="copy" class="w-4 h-4 inline mr-1"></i>
                             Copy
                         </button>
                     </div>
-                    <pre class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-function" class="language-c"></code></pre>
+                    <pre
+                        class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-function" class="language-c"></code></pre>
                 </div>
 
                 <div class="solution-content p-6 hidden" id="solution-args">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">With Arguments Solution</h3>
-                        <button class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors" data-solution="args">
+                        <button
+                            class="copy-btn bg-primary-600 hover:bg-primary-700 text-white px-3 py-1 rounded-lg text-sm transition-colors"
+                            data-solution="args">
                             <i data-lucide="copy" class="w-4 h-4 inline mr-1"></i>
                             Copy
                         </button>
                     </div>
-                    <pre class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-args" class="language-c"></code></pre>
+                    <pre
+                        class="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-x-auto"><code id="code-args" class="language-c"></code></pre>
                 </div>
             </div>
         </div>
@@ -113,14 +156,17 @@
     </main>
 
     <!-- Copy Success Toast -->
-    <div id="copyToast" class="fixed top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300">
+    <div id="copyToast"
+        class="fixed top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300">
         <i data-lucide="check" class="w-4 h-4 inline mr-2"></i>
         Code copied to clipboard!
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/question.js"></script>
 </body>
+
 </html>

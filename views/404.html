@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        /* Full screen setup */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            touch-action: manipulation;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #gameCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .message {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        p {
+            margin: 5px 0 0;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-container {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            z-index: 10;
+            display: none;
+            /* Hidden by default, shown on game over */
+        }
+
+        button {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover,
+        button:focus {
+            background: #e84118;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        /* Instructions overlay */
+        #instructions {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        #instructions p {
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+
+        #startBtn {
+            background: #4CAF50;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+        }
+
+        #startBtn:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="gameContainer">
+        <div class="message">
+            <h1>404 - Page Not Found</h1>
+        </div>
+        <div class="center">
+            <p>But here's a game to cheer you up!</p>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div class="btn-container">
+            <button id="restartBtn">🔄 Try Again</button>
+        </div>
+
+        <div id="instructions">
+            <h2>Flappy Bird Game</h2>
+            <p>Tap anywhere or press SPACE to make the bird fly. Avoid the pipes!</p>
+            <button id="startBtn">Start Game</button>
+        </div>
+    </div>
+
+    <script src="/js/404.js"></script>
+</body>
+
+</html>
