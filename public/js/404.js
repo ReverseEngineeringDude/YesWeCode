@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Game variables
     let frames = 0;
-    const gravity = 1.5;  // Reduced gravity for easier gameplay
+    const gravity = 0.2;  // Reduced gravity for easier gameplay
     const jump = 8;        // Increased jump power
     let score = 0;
     let gameOver = false;
