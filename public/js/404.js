@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Game variables
     let frames = 0;
-    const gravity = 0.1;  // Reduced gravity for easier gameplay
-    const jump = 3;        // Increased jump power
+    const gravity = 1.5;  // Reduced gravity for easier gameplay
+    const jump = 8;        // Increased jump power
     let score = 0;
     let gameOver = false;
     let gameStarted = false;
@@ -96,10 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updatePipes() {
         // Create new pipes less frequently (easier gameplay)
-        if (frames % 120 === 0) createPipe();
+        if (frames % 90 === 0) createPipe();
 
         for (let i = 0; i < pipes.length; i++) {
-            pipes[i].x -= 2;  // Slower pipe speed
+            pipes[i].x -= 4;  // Slower pipe speed
 
             // Collision detection
             if (
